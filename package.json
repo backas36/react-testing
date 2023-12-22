@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --dir src",
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "next": "14.0.4",
@@ -15,6 +17,8 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
@@ -32,11 +36,18 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-testing-library": "^6.2.0",
     "eslint-plugin-vitest": "^0.3.18",
+    "husky": "^8.0.0",
     "jsdom": "^23.0.1",
+    "lint-staged": "^15.2.0",
     "postcss": "^8",
+    "prettier": "^3.1.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.3.3",
     "vite-tsconfig-paths": "^4.2.2",
     "vitest": "^1.1.0"
+  },
+  "lint-staged": {
+    "*.(tsx|ts|js|jsx)": "eslint --cache --fix",
+    "*": "prettier --write --ignore-unknown"
   }
 }
