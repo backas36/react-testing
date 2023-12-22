@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint --dir src",
     "test": "vitest",
+    "test:ci": "vitest run --coverage",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
   },
@@ -29,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.1.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
