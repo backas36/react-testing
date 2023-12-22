@@ -4,9 +4,8 @@ import { expect, it } from "vitest";
 
 import Hello from "./Hello";
 
-it.only("renders 'Hello'", () => {
+it("renders 'Hello'", () => {
   render(<Hello />);
   const myElement = screen.getByText(/Hello/);
-  screen.debug();
   expect(myElement).toBeInTheDocument();
 });
