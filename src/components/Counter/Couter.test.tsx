@@ -85,4 +85,42 @@ describe("Counter", () => {
       });
     });
   });
+
+  describe("initialized with defaultCount=-10, desc='This is my counter'", () => {
+    beforeEach(() => {
+      render(<Counter defaultCount={-10} desc="This is my counter" />);
+    });
+
+    it("render 'Counter Counter: -10'", () => {
+      expect(screen.getByText("Current Count: -10")).toBeInTheDocument();
+    });
+
+    it("render title as 'This is my counter'", () => {
+      expect(screen.getByText("This is my counter")).toBeInTheDocument();
+    });
+
+    describe("when + is clicked", () => {
+      it("when the incrementor changes to 10", async () => {
+        const input = screen.getByLabelText(/incrementor/i);
+        await user.clear(input);
+        await user.type(input, "10");
+        await user.click(
+          screen.getByRole("button", { name: "Increment Counter" }),
+        );
+        expect(screen.getByText("Current Count: 0")).toBeInTheDocument();
+      });
+    });
+
+    describe("when - is clicked", () => {
+      it("when the incrementor changes to -10", async () => {
+        const input = screen.getByLabelText(/incrementor/i);
+        await user.clear(input);
+        await user.type(input, "-10");
+        await user.click(
+          screen.getByRole("button", { name: "Decrement Counter" }),
+        );
+        expect(screen.getByText("Current Count: -20")).toBeInTheDocument();
+      });
+    });
+  });
 });
