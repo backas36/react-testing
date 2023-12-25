@@ -22,19 +22,23 @@ const Counter = ({ defaultCount, desc }: IProps) => {
         />
       </label>
       <br />
-      <button
-        aria-label="Increment Counter"
-        onClick={() => setCount((prev) => prev + incrementor)}
-      >
-        +
-      </button>
-      <div className="">Current Count: {count}</div>
-      <button
-        aria-label="Decrement Counter"
-        onClick={() => setCount((prev) => prev - incrementor)}
-      >
-        -
-      </button>
+      <div className="flex items-center">
+        <button
+          className="m-1 border-2 px-4"
+          aria-label="Increment Counter"
+          onClick={() => setCount((prev) => prev + incrementor)}
+        >
+          +
+        </button>
+        <div className="">Current Count: {count}</div>
+        <button
+          className="m-1 border-2 px-4"
+          aria-label="Decrement Counter"
+          onClick={() => setCount((prev) => prev - incrementor)}
+        >
+          -
+        </button>
+      </div>
     </div>
   );
 };
