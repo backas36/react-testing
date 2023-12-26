@@ -34,7 +34,9 @@ const Counter = ({ defaultCount, desc }: IProps) => {
         <button
           className="m-1 border-2 px-4"
           aria-label="Decrement Counter"
-          onClick={() => setCount((prev) => prev - incrementor)}
+          onClick={() =>
+            setTimeout(() => setCount((prev) => prev - incrementor), 200)
+          }
         >
           -
         </button>

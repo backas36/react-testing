@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Counter from "./Counter";
@@ -35,7 +35,9 @@ describe("Counter", () => {
           screen.getByRole("button", { name: "Decrement Counter" }),
         );
 
-        expect(screen.getByText("Current Count: 9")).toBeInTheDocument();
+        await waitFor(() =>
+          expect(screen.getByText("Current Count: 9")).toBeInTheDocument(),
+        );
       });
     });
 
@@ -81,7 +83,9 @@ describe("Counter", () => {
           screen.getByRole("button", { name: "Decrement Counter" }),
         );
 
-        expect(screen.getByText("Current Count: -1")).toBeInTheDocument();
+        await waitFor(() =>
+          expect(screen.getByText("Current Count: -1")).toBeInTheDocument(),
+        );
       });
     });
   });
@@ -111,7 +115,7 @@ describe("Counter", () => {
       });
     });
 
-    describe("when - is clicked", () => {
+    describe("when the incrementor changes to -10, and - is clicked", () => {
       it("when the incrementor changes to -10", async () => {
         const input = screen.getByLabelText(/incrementor/i);
         await user.clear(input);
@@ -119,7 +123,9 @@ describe("Counter", () => {
         await user.click(
           screen.getByRole("button", { name: "Decrement Counter" }),
         );
-        expect(screen.getByText("Current Count: -20")).toBeInTheDocument();
+        await waitFor(() =>
+          expect(screen.getByText("Current Count: -20")).toBeInTheDocument(),
+        );
       });
     });
   });
