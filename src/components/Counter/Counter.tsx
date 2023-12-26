@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IProps {
   defaultCount: number;
@@ -8,6 +8,18 @@ interface IProps {
 const Counter = ({ defaultCount, desc }: IProps) => {
   const [count, setCount] = useState(defaultCount);
   const [incrementor, setIncrementor] = useState(1);
+  const [bigEnough, setBigEnough] = useState(defaultCount >= 15);
+
+  useEffect(() => {
+    let id: NodeJS.Timeout;
+    if (count >= 15) {
+      id = setTimeout(() => setBigEnough(true), 300);
+      return;
+    }
+    setBigEnough(false);
+    return () => clearTimeout(id);
+  }, [count]);
+
   return (
     <div>
       <h2>{desc}</h2>
@@ -40,6 +52,7 @@ const Counter = ({ defaultCount, desc }: IProps) => {
         >
           -
         </button>
+        {!bigEnough && <div className="text-indigo-500">I am too small</div>}
       </div>
     </div>
   );

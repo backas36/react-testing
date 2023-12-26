@@ -13,28 +13,17 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "vitest",
-    "eslint-plugin-testing-library"
-  ],
+  "plugins": ["vitest", "eslint-plugin-testing-library"],
   "overrides": [
     {
-      "files": [
-        "**/__tests__ /**/*.[jt]sx?",
-        "**/?(*.)+(spec|test).[jt]sx?"
-      ],
-      "extends": [
-        "plugin:testing-library/react"
-      ]
+      "files": ["**/__tests__ /**/*.[jt]sx?", "**/?(*.)+(spec|test).[jt]sx?"],
+      "extends": ["plugin:testing-library/react"]
     }
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "off"
-    ],
-    "testing-library/no-debugging-utils": [
-      "warn"
-    ]
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "testing-library/no-debugging-utils": ["warn"],
+    "vitest/expect-expect": [1]
   }
 }
