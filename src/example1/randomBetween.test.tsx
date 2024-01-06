@@ -25,7 +25,7 @@ describe("randomBetween", () => {
 
   describe("when Math.random() return 0.5", () => {
     beforeEach(() => {
-      // it should be same result, it will pass
+      // it should be same as mockClear() result, it will pass
       vi.resetAllMocks();
       randomSpy.mockReturnValue(0.5);
     });

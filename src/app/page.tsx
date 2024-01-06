@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import Counter from "@/components/Counter/Counter";
+import Example2 from "../example2/Example2";
 
 export default function Home() {
   return (
